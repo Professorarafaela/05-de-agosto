@@ -1,146 +1,167 @@
-/* ==========================================================================
-   1. RESET E BOAS PRÁTICAS DE LEITURA
-   ========================================================================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destaques - Empatia</title>
+  <!-- Ícones do Lucide (via Font Awesome / CDNs) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
-}
+    body {
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
 
-/* Respeita preferências de usuários com labirintite/vertigem que desativam animações no sistema */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    transform: none !important;
-  }
-}
+    /* Container Principal da Seção */
+    .highlights-section {
+      max-width: 1200px;
+      width: 100%;
+    }
 
-/* ==========================================================================
-   2. ESTRUTURA E FLEXBOX
-   ========================================================================== */
-.highlights {
-  max-width: 1200px;
-  width: 100%;
-}
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #0f172a;
+      margin-bottom: 2.5rem;
+    }
 
-.highlights-title {
-  text-align: center;
-  font-size: 2.25rem;
-  color: #0f172a; /* Contraste super elevado de 15:1 */
-  margin-bottom: 2.5rem;
-}
+    /* Layout Flexbox */
+    .cards-container {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap; /* Garante responsividade em telas menores */
+    }
 
-/* Container Flexbox para organizar os 3 cartões lado a lado */
-.cards-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  justify-content: center;
-  align-items: stretch; /* Garante que todos os cartões tenham exatamente a mesma altura */
-  flex-wrap: wrap;       /* Em telas menores (mobile), permite que os cartões empilhem automaticamente */
-}
+    /* Estilo Base dos Cartões */
+    .card {
+      flex: 1 1 300px; /* Cresce, encolhe e tem base de 300px */
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* ==========================================================================
-   3. ESTILO BASE DOS CARTÕES
-   ========================================================================== */
-.card {
-  flex: 1 1 300px; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 300px (Responsivo) */
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+    }
 
-/* Efeito Hover com elevação suave */
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
+    /* Ícones */
+    .icon-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-.icon-wrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
+    /* Tipografia dos Cartões */
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
 
-.card-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-.card-description {
-  font-size: 1rem;
-  line-height: 1.6; /* O espaçamento de 1.6 facilita bastante a leitura para pessoas com dislexia */
-}
+    /* Variações de Cores Modernas */
+    
+    /* Cartão 1: Indigo/Azul */
+    .card-blue {
+      background-color: #eff6ff;
+      border: 1px solid #dbeafe;
+    }
+    .card-blue .icon-wrapper {
+      background-color: #3b82f6;
+      color: #ffffff;
+    }
+    .card-blue h3 { color: #1e3a8a; }
+    .card-blue p { color: #3b82f6; opacity: 0.9; color: #1e40af; }
 
-/* ==========================================================================
-   4. PALETA MODERNA COM CONTRASTE ACESSÍVEL (WCAG AA/AAA)
-   ========================================================================== */
+    /* Cartão 2: Violeta/Roxo */
+    .card-purple {
+      background-color: #f5f3ff;
+      border: 1px solid #ede9fe;
+    }
+    .card-purple .icon-wrapper {
+      background-color: #8b5cf6;
+      color: #ffffff;
+    }
+    .card-purple h3 { color: #4c1d95; }
+    .card-purple p { color: #5b21b6; }
 
-/* Cartão 1: Azul */
-.card-blue {
-  background-color: #eff6ff;
-  border: 2px solid #bfdbfe; /* Bordas ajudam pessoas com baixa visão a identificar os limites do elemento */
-}
-.card-blue .icon-wrapper {
-  background-color: #1d4ed8;
-  color: #ffffff;
-}
-.card-blue .card-title {
-  color: #1e3a8a; /* Contraste de 11.5:1 */
-}
-.card-blue .card-description {
-  color: #1e40af; /* Contraste de 8.2:1 */
-}
+    /* Cartão 3: Esmeralda/Verde */
+    .card-emerald {
+      background-color: #ecfdf5;
+      border: 1px solid #d1fae5;
+    }
+    .card-emerald .icon-wrapper {
+      background-color: #10b981;
+      color: #ffffff;
+    }
+    .card-emerald h3 { color: #064e3b; }
+    .card-emerald p { color: #065f46; }
+  </style>
+</head>
+<body>
 
-/* Cartão 2: Violeta */
-.card-purple {
-  background-color: #f5f3ff;
-  border: 2px solid #ddd6fe;
-}
-.card-purple .icon-wrapper {
-  background-color: #6d28d9;
-  color: #ffffff;
-}
-.card-purple .card-title {
-  color: #3b0764; /* Contraste de 14.1:1 */
-}
-.card-purple .card-description {
-  color: #5b21b6; /* Contraste de 8.8:1 */
-}
+  <section class="highlights-section">
+    <h2 class="section-title">Pilares da Empatia</h2>
+    
+    <div class="cards-container">
+      
+      <!-- Cartão 1 -->
+      <article class="card card-blue">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-ear-listen"></i>
+        </div>
+        <h3>Escuta Ativa</h3>
+        <p>Ouvir com presença e sem julgamentos, acolhendo a perspectiva do outro.</p>
+      </article>
 
-/* Cartão 3: Esmeralda */
-.card-emerald {
-  background-color: #ecfdf5;
-  border: 2px solid #a7f3d0;
-}
-.card-emerald .icon-wrapper {
-  background-color: #047857;
-  color: #ffffff;
-}
-.card-emerald .card-title {
-  color: #022c22; /* Contraste de 15.3:1 */
-}
-.card-emerald .card-description {
-  color: #065f46; /* Contraste de 8.6:1 */
-}
+      <!-- Cartão 2 -->
+      <article class="card card-purple">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h3>Conexão Humana</h3>
+        <p>Reconhecer sentimentos e fortalecer laços através da vulnerabilidade.</p>
+      </article>
+
+      <!-- Cartão 3 -->
+      <article class="card card-emerald">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-hands-holding-child"></i>
+        </div>
+        <h3>Ação Compassiva</h3>
+        <p>Transformar a compreensão do sofrimento alheio em atitudes de apoio.</p>
+      </article>
+
+    </div>
+  </section>
+
+</body>
+</html>
