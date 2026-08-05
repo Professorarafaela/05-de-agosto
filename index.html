@@ -1,55 +1,54 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Destaques - Empatia</title>
+  <title>Destaques - Empatia em Foco</title>
   
-  <!-- Font Awesome para ícones acessíveis -->
+  <!-- Biblioteca de ícones (Font Awesome) para os recursos visuais -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Usamos <main> para indicar o conteúdo principal da página -->
+  <!-- <main>: Indica aos leitores de tela que aqui começa o conteúdo principal da página -->
   <main>
     
-    <!-- <section> agrupa um bloco temático da página; aria-labelledby associa o título à seção para leitores de tela -->
-    <section class="highlights-section" aria-labelledby="section-heading">
+    <!-- <section>: Agrupa um bloco temático da página. O 'aria-labelledby' conecta a seção ao seu título para tecnologias assistivas -->
+    <section class="highlights" aria-labelledby="highlights-title">
       
-      <!-- <h2> define o nível hierárquico do título desta seção -->
-      <h2 id="section-heading" class="section-title">Pilares da Empatia</h2>
+      <!-- <h2>: Estabelece a hierarquia do título principal deste bloco -->
+      <h2 id="highlights-title" class="highlights-title">Pilares da Empatia</h2>
       
-      <!-- <div> atua como um container flexível sem carga semântica para fins de layout -->
+      <!-- <div>: Usado estritamente como um agrupador/container visual para aplicar o layout em Flexbox -->
       <div class="cards-container">
         
-        <!-- <article> representa um conteúdo autônomo, completo e reutilizável por si só -->
+        <!-- <article>: Cada cartão é um elemento autônomo e completo. Se isolado da página, ainda faz sentido sozinho -->
         <article class="card card-blue">
-          <!-- aria-hidden="true" faz o leitor de tela ignorar o ícone, evitando leitura redundante -->
+          <!-- aria-hidden="true": Esconde o ícone de leitores de tela, pois ele é decorativo e evita ruído na leitura do texto -->
           <div class="icon-wrapper" aria-hidden="true">
             <i class="fa-solid fa-ear-listen"></i>
           </div>
-          <!-- <h3> estabelece a sub-hierarquia do cartão -->
-          <h3>Escuta Ativa</h3>
-          <!-- <p> para o parágrafo explicativo -->
-          <p>Ouvir com presença e sem julgamentos, acolhendo a perspectiva do outro de forma genuína.</p>
+          <!-- <h3>: Título de nível secundário pertencente ao artigo -->
+          <h3 class="card-title">Escuta Ativa</h3>
+          <!-- <p>: Contém a descrição curta do pilar -->
+          <p class="card-description">Ouvir com presença total e sem julgamentos, acolhendo a perspectiva do outro.</p>
         </article>
 
         <article class="card card-purple">
           <div class="icon-wrapper" aria-hidden="true">
             <i class="fa-solid fa-heart"></i>
           </div>
-          <h3>Conexão Humana</h3>
-          <p>Reconhecer sentimentos e fortalecer laços por meio do respeito e da vulnerabilidade.</p>
+          <h3 class="card-title">Conexão Humana</h3>
+          <p class="card-description">Reconhecer vulnerabilidades e construir pontes sinceras de afeto e respeito.</p>
         </article>
 
         <article class="card card-emerald">
           <div class="icon-wrapper" aria-hidden="true">
             <i class="fa-solid fa-hands-holding-child"></i>
           </div>
-          <h3>Ação Compassiva</h3>
-          <p>Transformar a compreensão do sofrimento alheio em atitudes práticas de apoio e cuidado.</p>
+          <h3 class="card-title">Ação Compassiva</h3>
+          <p class="card-description">Transformar a percepção do sentimento alheio em gestos práticos de apoio.</p>
         </article>
 
       </div>
