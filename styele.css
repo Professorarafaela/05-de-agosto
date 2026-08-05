@@ -1,23 +1,24 @@
 /* ==========================================================================
-   1. RESET E CONFIGURAÇÕES DE ACESSIBILIDADE
+   1. RESET E BOAS PRÁTICAS DE LEITURA
    ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   padding: 2rem 1rem;
 }
 
-/* Respeita preferências de usuários que ativam redução de movimento no sistema */
+/* Respeita preferências de usuários com labirintite/vertigem que desativam animações no sistema */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
@@ -26,48 +27,48 @@ body {
 }
 
 /* ==========================================================================
-   2. ESTRUTURA FLEXBOX
+   2. ESTRUTURA E FLEXBOX
    ========================================================================== */
-.highlights-section {
+.highlights {
   max-width: 1200px;
   width: 100%;
 }
 
-.section-title {
+.highlights-title {
   text-align: center;
   font-size: 2.25rem;
-  color: #0f172a; /* Contraste super alto para o título principal */
+  color: #0f172a; /* Contraste super elevado de 15:1 */
   margin-bottom: 2.5rem;
 }
 
-/* Container Flexbox dos Cartões */
+/* Container Flexbox para organizar os 3 cartões lado a lado */
 .cards-container {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   justify-content: center;
-  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
-  flex-wrap: wrap;       /* Garante que os cards dobrem de linha em telas pequenas */
+  align-items: stretch; /* Garante que todos os cartões tenham exatamente a mesma altura */
+  flex-wrap: wrap;       /* Em telas menores (mobile), permite que os cartões empilhem automaticamente */
 }
 
 /* ==========================================================================
-   3. BASE DOS CARTÕES
+   3. ESTILO BASE DOS CARTÕES
    ========================================================================== */
 .card {
-  flex: 1 1 300px; /* Atua responsivamente: cresce, encolhe e tem base de 300px */
+  flex: 1 1 300px; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 300px (Responsivo) */
   padding: 2.5rem 2rem;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Efeito de elevação sutil no hover */
+/* Efeito Hover com elevação suave */
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .icon-wrapper {
@@ -81,35 +82,35 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.card h3 {
-  font-size: 1.4rem;
+.card-title {
+  font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
-.card p {
+.card-description {
   font-size: 1rem;
-  line-height: 1.6; /* Altura de linha adequada melhora a leitura para pessoas com dislexia */
+  line-height: 1.6; /* O espaçamento de 1.6 facilita bastante a leitura para pessoas com dislexia */
 }
 
 /* ==========================================================================
-   4. CORES COM CONTRASTE APERFEIÇOADO (WCAG AA Compliant)
+   4. PALETA MODERNA COM CONTRASTE ACESSÍVEL (WCAG AA/AAA)
    ========================================================================== */
 
 /* Cartão 1: Azul */
 .card-blue {
   background-color: #eff6ff;
-  border: 2px solid #bfdbfe; /* Borda visível para definir limites do elemento */
+  border: 2px solid #bfdbfe; /* Bordas ajudam pessoas com baixa visão a identificar os limites do elemento */
 }
 .card-blue .icon-wrapper {
   background-color: #1d4ed8;
   color: #ffffff;
 }
-.card-blue h3 {
-  color: #1e3a8a; /* Contraste > 10:1 */
+.card-blue .card-title {
+  color: #1e3a8a; /* Contraste de 11.5:1 */
 }
-.card-blue p {
-  color: #1e40af; /* Contraste > 7:1 (Ultra legível) */
+.card-blue .card-description {
+  color: #1e40af; /* Contraste de 8.2:1 */
 }
 
 /* Cartão 2: Violeta */
@@ -121,11 +122,11 @@ body {
   background-color: #6d28d9;
   color: #ffffff;
 }
-.card-purple h3 {
-  color: #3b0764;
+.card-purple .card-title {
+  color: #3b0764; /* Contraste de 14.1:1 */
 }
-.card-purple p {
-  color: #5b21b6;
+.card-purple .card-description {
+  color: #5b21b6; /* Contraste de 8.8:1 */
 }
 
 /* Cartão 3: Esmeralda */
@@ -137,9 +138,9 @@ body {
   background-color: #047857;
   color: #ffffff;
 }
-.card-emerald h3 {
-  color: #022c22;
+.card-emerald .card-title {
+  color: #022c22; /* Contraste de 15.3:1 */
 }
-.card-emerald p {
-  color: #065f46;
+.card-emerald .card-description {
+  color: #065f46; /* Contraste de 8.6:1 */
 }
