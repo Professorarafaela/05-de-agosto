@@ -1,167 +1,61 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destaques - Empatia</title>
-  <!-- Ícones do Lucide (via Font Awesome / CDNs) -->
+  
+  <!-- Font Awesome para ícones acessíveis -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background-color: #f8fafc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    /* Container Principal da Seção */
-    .highlights-section {
-      max-width: 1200px;
-      width: 100%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #0f172a;
-      margin-bottom: 2.5rem;
-    }
-
-    /* Layout Flexbox */
-    .cards-container {
-      display: flex;
-      flex-direction: row;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
-      flex-wrap: wrap; /* Garante responsividade em telas menores */
-    }
-
-    /* Estilo Base dos Cartões */
-    .card {
-      flex: 1 1 300px; /* Cresce, encolhe e tem base de 300px */
-      padding: 2.5rem 2rem;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Ícones */
-    .icon-wrapper {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Tipografia dos Cartões */
-    .card h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Variações de Cores Modernas */
-    
-    /* Cartão 1: Indigo/Azul */
-    .card-blue {
-      background-color: #eff6ff;
-      border: 1px solid #dbeafe;
-    }
-    .card-blue .icon-wrapper {
-      background-color: #3b82f6;
-      color: #ffffff;
-    }
-    .card-blue h3 { color: #1e3a8a; }
-    .card-blue p { color: #3b82f6; opacity: 0.9; color: #1e40af; }
-
-    /* Cartão 2: Violeta/Roxo */
-    .card-purple {
-      background-color: #f5f3ff;
-      border: 1px solid #ede9fe;
-    }
-    .card-purple .icon-wrapper {
-      background-color: #8b5cf6;
-      color: #ffffff;
-    }
-    .card-purple h3 { color: #4c1d95; }
-    .card-purple p { color: #5b21b6; }
-
-    /* Cartão 3: Esmeralda/Verde */
-    .card-emerald {
-      background-color: #ecfdf5;
-      border: 1px solid #d1fae5;
-    }
-    .card-emerald .icon-wrapper {
-      background-color: #10b981;
-      color: #ffffff;
-    }
-    .card-emerald h3 { color: #064e3b; }
-    .card-emerald p { color: #065f46; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <section class="highlights-section">
-    <h2 class="section-title">Pilares da Empatia</h2>
+  <!-- Usamos <main> para indicar o conteúdo principal da página -->
+  <main>
     
-    <div class="cards-container">
+    <!-- <section> agrupa um bloco temático da página; aria-labelledby associa o título à seção para leitores de tela -->
+    <section class="highlights-section" aria-labelledby="section-heading">
       
-      <!-- Cartão 1 -->
-      <article class="card card-blue">
-        <div class="icon-wrapper">
-          <i class="fa-solid fa-ear-listen"></i>
-        </div>
-        <h3>Escuta Ativa</h3>
-        <p>Ouvir com presença e sem julgamentos, acolhendo a perspectiva do outro.</p>
-      </article>
+      <!-- <h2> define o nível hierárquico do título desta seção -->
+      <h2 id="section-heading" class="section-title">Pilares da Empatia</h2>
+      
+      <!-- <div> atua como um container flexível sem carga semântica para fins de layout -->
+      <div class="cards-container">
+        
+        <!-- <article> representa um conteúdo autônomo, completo e reutilizável por si só -->
+        <article class="card card-blue">
+          <!-- aria-hidden="true" faz o leitor de tela ignorar o ícone, evitando leitura redundante -->
+          <div class="icon-wrapper" aria-hidden="true">
+            <i class="fa-solid fa-ear-listen"></i>
+          </div>
+          <!-- <h3> estabelece a sub-hierarquia do cartão -->
+          <h3>Escuta Ativa</h3>
+          <!-- <p> para o parágrafo explicativo -->
+          <p>Ouvir com presença e sem julgamentos, acolhendo a perspectiva do outro de forma genuína.</p>
+        </article>
 
-      <!-- Cartão 2 -->
-      <article class="card card-purple">
-        <div class="icon-wrapper">
-          <i class="fa-solid fa-heart"></i>
-        </div>
-        <h3>Conexão Humana</h3>
-        <p>Reconhecer sentimentos e fortalecer laços através da vulnerabilidade.</p>
-      </article>
+        <article class="card card-purple">
+          <div class="icon-wrapper" aria-hidden="true">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <h3>Conexão Humana</h3>
+          <p>Reconhecer sentimentos e fortalecer laços por meio do respeito e da vulnerabilidade.</p>
+        </article>
 
-      <!-- Cartão 3 -->
-      <article class="card card-emerald">
-        <div class="icon-wrapper">
-          <i class="fa-solid fa-hands-holding-child"></i>
-        </div>
-        <h3>Ação Compassiva</h3>
-        <p>Transformar a compreensão do sofrimento alheio em atitudes de apoio.</p>
-      </article>
+        <article class="card card-emerald">
+          <div class="icon-wrapper" aria-hidden="true">
+            <i class="fa-solid fa-hands-holding-child"></i>
+          </div>
+          <h3>Ação Compassiva</h3>
+          <p>Transformar a compreensão do sofrimento alheio em atitudes práticas de apoio e cuidado.</p>
+        </article>
 
-    </div>
-  </section>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
