@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET E CONFIGURAÇÕES GERAIS
+   1. RESET E CONFIGURAÇÕES DE ACESSIBILIDADE
    ========================================================================== */
 * {
   box-sizing: border-box;
@@ -14,11 +14,19 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2rem 1rem;
+}
+
+/* Respeita preferências de usuários que ativam redução de movimento no sistema */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 /* ==========================================================================
-   2. ESTRUTURA E LAYOUT (FLEXBOX)
+   2. ESTRUTURA FLEXBOX
    ========================================================================== */
 .highlights-section {
   max-width: 1200px;
@@ -27,42 +35,41 @@ body {
 
 .section-title {
   text-align: center;
-  font-size: 2rem;
-  color: #0f172a;
+  font-size: 2.25rem;
+  color: #0f172a; /* Contraste super alto para o título principal */
   margin-bottom: 2.5rem;
 }
 
-/* Container principal com Flexbox */
+/* Container Flexbox dos Cartões */
 .cards-container {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap; /* Garante que os cards empilhem no mobile */
+  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
+  flex-wrap: wrap;       /* Garante que os cards dobrem de linha em telas pequenas */
 }
 
 /* ==========================================================================
-   3. ESTILO BASE DOS CARTÕES
+   3. BASE DOS CARTÕES
    ========================================================================== */
 .card {
-  flex: 1 1 300px; /* Cresce, encolhe e define largura base de 300px */
+  flex: 1 1 300px; /* Atua responsivamente: cresce, encolhe e tem base de 300px */
   padding: 2.5rem 2rem;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Efeito Hover (passar o mouse) */
+/* Efeito de elevação sutil no hover */
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo do Ícone */
 .icon-wrapper {
   width: 56px;
   height: 56px;
@@ -74,65 +81,64 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Tipografia */
 .card h3 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 .card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.6; /* Altura de linha adequada melhora a leitura para pessoas com dislexia */
 }
 
 /* ==========================================================================
-   4. TEMAS DE CORES (PALETA MODERNA)
+   4. CORES COM CONTRASTE APERFEIÇOADO (WCAG AA Compliant)
    ========================================================================== */
 
-/* Cartão 1: Azul Soft */
+/* Cartão 1: Azul */
 .card-blue {
   background-color: #eff6ff;
-  border: 1px solid #dbeafe;
+  border: 2px solid #bfdbfe; /* Borda visível para definir limites do elemento */
 }
 .card-blue .icon-wrapper {
-  background-color: #3b82f6;
+  background-color: #1d4ed8;
   color: #ffffff;
 }
 .card-blue h3 {
-  color: #1e3a8a;
+  color: #1e3a8a; /* Contraste > 10:1 */
 }
 .card-blue p {
-  color: #1e40af;
+  color: #1e40af; /* Contraste > 7:1 (Ultra legível) */
 }
 
-/* Cartão 2: Violeta Soft */
+/* Cartão 2: Violeta */
 .card-purple {
   background-color: #f5f3ff;
-  border: 1px solid #ede9fe;
+  border: 2px solid #ddd6fe;
 }
 .card-purple .icon-wrapper {
-  background-color: #8b5cf6;
+  background-color: #6d28d9;
   color: #ffffff;
 }
 .card-purple h3 {
-  color: #4c1d95;
+  color: #3b0764;
 }
 .card-purple p {
   color: #5b21b6;
 }
 
-/* Cartão 3: Esmeralda Soft */
+/* Cartão 3: Esmeralda */
 .card-emerald {
   background-color: #ecfdf5;
-  border: 1px solid #d1fae5;
+  border: 2px solid #a7f3d0;
 }
 .card-emerald .icon-wrapper {
-  background-color: #10b981;
+  background-color: #047857;
   color: #ffffff;
 }
 .card-emerald h3 {
-  color: #064e3b;
+  color: #022c22;
 }
 .card-emerald p {
   color: #065f46;
